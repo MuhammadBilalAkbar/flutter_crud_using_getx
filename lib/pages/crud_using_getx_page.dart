@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_crud_using_getx/pages/delete_user_page.dart';
+import 'package:flutter_crud_using_getx/pages/update_user_page.dart';
 import '/pages/get_user_page.dart';
 import '/pages/post_login_page.dart';
 import 'package:get/get.dart';
@@ -46,9 +47,9 @@ class _CrudUsingGetXState extends State<CrudUsingGetX> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () => Get.to(
-                    () => const PostLoginPage(title: 'Post Login Page'),
+                    () => const UpdateUserPage(title: 'Update User Page'),
                   ),
-                  child: const Text('Post Login Page'),
+                  child: const Text('Update User Page'),
                 ),
                 const SizedBox(height: 20),
               ],
