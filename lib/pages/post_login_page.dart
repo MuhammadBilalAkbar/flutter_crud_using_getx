@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import '/getx_controllers/post_login_controller.dart';
 import 'package:get/get.dart';
+
+import '/getx_controllers/post_login_controller.dart';
 
 class PostLoginPage extends StatefulWidget {
   const PostLoginPage({Key? key, required this.title}) : super(key: key);
@@ -31,7 +32,7 @@ class _PostLoginPageState extends State<PostLoginPage> {
                   controller: postLoginController.passwordController.value,
                   decoration: const InputDecoration(hintText: 'Password'),
                 ),
-                const SizedBox(height: 48),
+                const SizedBox(height: 24),
                 Obx(
                   () => postLoginController.loading.value
                       ? const CircularProgressIndicator()

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_crud_using_getx/pages/crud_using_getx_page.dart';
 import 'package:get/get.dart';
+
+import '/pages/crud_using_getx_page.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -24,10 +25,6 @@ class MyApp extends StatelessWidget {
             bodySmall: TextStyle(fontSize: 30),
             bodyLarge: TextStyle(fontSize: 30),
             bodyMedium: TextStyle(fontSize: 25),
-          ),
-          snackBarTheme: SnackBarThemeData(
-            contentTextStyle: TextStyle(fontSize: 100),
-            showCloseIcon: true,
           ),
           elevatedButtonTheme: ElevatedButtonThemeData(
             style: ElevatedButton.styleFrom(

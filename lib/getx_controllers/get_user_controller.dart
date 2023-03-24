@@ -21,12 +21,12 @@ class GetUserController extends GetxController {
       if (response.statusCode == 200) {
         loading.value = false;
         userData.value = data.toString();
-        Get.snackbar(
-            'Congrats!', 'User${idController.value.text} data loaded successfully');
+        Get.snackbar('Congrats!',
+            'User${idController.value.text} data loaded successfully');
       } else {
         loading.value = false;
-        Get.snackbar(
-            data['error'], 'User${idController.value.text} data loading failed');
+        Get.snackbar(data['error'],
+            'User${idController.value.text} data loading failed');
       }
     } catch (e) {
       loading.value = false;
