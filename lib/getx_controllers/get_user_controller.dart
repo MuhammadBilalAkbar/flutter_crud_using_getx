@@ -16,18 +16,18 @@ class GetUserController extends GetxController {
       final response = await get(
         Uri.parse('https://reqres.in/api/users/${idController.value.text}'),
       );
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       debugPrint('statusCode: ${response.statusCode}\ndata => $data');
-      if (response.statusCode == 200) {
-        loading.value = false;
-        userData.value = data.toString();
-        Get.snackbar('Congrats!',
-            'User${idController.value.text} data loaded successfully');
-      } else {
+      if (response.statusCode != 200) {
         loading.value = false;
         Get.snackbar(data['error'],
             'User${idController.value.text} data loading failed');
+        return;
       }
+      loading.value = false;
+      userData.value = data.toString();
+      Get.snackbar('Congrats!',
+          'User${idController.value.text} data loaded successfully');
     } catch (e) {
       loading.value = false;
       Get.snackbar('Exception', e.toString());

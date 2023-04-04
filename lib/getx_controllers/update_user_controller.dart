@@ -22,18 +22,18 @@ class UpdateUserController extends GetxController {
           'job': jobController.value.text
         },
       );
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       debugPrint('statusCode: ${response.statusCode}\ndata => $data');
-      if (response.statusCode == 200) {
-        loading.value = false;
-        updatedData.value = data.toString();
-        Get.snackbar('Congrats!',
-            'User${idController.value.text} data updated successfully');
-      } else {
+      if (response.statusCode != 200) {
         loading.value = false;
         Get.snackbar(
             'Error', 'User${idController.value.text} data updating error');
+        return;
       }
+      loading.value = false;
+      updatedData.value = data.toString();
+      Get.snackbar('Congrats!',
+          'User${idController.value.text} data updated successfully');
     } catch (e) {
       loading.value = false;
       Get.snackbar('Exception', e.toString());

@@ -18,14 +18,14 @@ class DeleteUserController extends GetxController {
       // client doesn't need to navigate away from its current page,
       // and it has no data.
       debugPrint('statusCode: ${response.statusCode.toString()}');
-      if (response.statusCode == 204) {
-        loading.value = false;
-        Get.snackbar(
-            'Congrats!', 'User${idController.value.text} deleted successfully');
-      } else {
+      if (response.statusCode != 204) {
         loading.value = false;
         Get.snackbar('error', 'User${idController.value.text} deletion failed');
+        return;
       }
+      loading.value = false;
+      Get.snackbar(
+          'Congrats!', 'User${idController.value.text} deleted successfully');
     } catch (e) {
       loading.value = false;
       Get.snackbar('Exception', e.toString());

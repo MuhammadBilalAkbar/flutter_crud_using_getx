@@ -20,15 +20,15 @@ class PostLoginController extends GetxController {
           'password': passwordController.value.text
         },
       );
-      var data = jsonDecode(response.body);
+      final data = jsonDecode(response.body);
       debugPrint('statusCode: ${response.statusCode}\ndata => $data');
-      if (response.statusCode == 200) {
-        loading.value = false;
-        Get.snackbar('Congrats!', 'Login successful');
-      } else {
+      if (response.statusCode != 200) {
         loading.value = false;
         Get.snackbar(data['error'], 'Login failed');
+        return;
       }
+      loading.value = false;
+      Get.snackbar('Congrats!', 'Login successful');
     } catch (e) {
       loading.value = false;
       Get.snackbar('Exception', e.toString());
